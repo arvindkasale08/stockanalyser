@@ -4,6 +4,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -11,6 +13,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 @EnableConfigurationProperties
+@Slf4j
 public class StockanalyzerApplication {
 
 	public static void main(String[] args) {
@@ -23,6 +26,16 @@ public class StockanalyzerApplication {
 			1,
 			30,
 			TimeUnit.MINUTES);
+
+		ScheduledExecutorService executorService2 = Executors.newScheduledThreadPool(4);
+		executorService.scheduleAtFixedRate(() -> {
+			log.info("...........................Health check...........................");
+			}
+			,
+			1,
+			2,
+			TimeUnit.MINUTES);
+
 	}
 
 }
