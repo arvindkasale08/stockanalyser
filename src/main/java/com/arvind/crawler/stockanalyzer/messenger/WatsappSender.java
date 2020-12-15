@@ -19,7 +19,7 @@ public class WatsappSender {
 	public void send(String body) {
 		log.info("Sending message={} using properties={}", body, properties);
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
