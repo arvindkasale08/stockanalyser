@@ -14,7 +14,8 @@ public interface Retriever {
 		try {
 			return Jsoup.connect(url)
 				.userAgent("Mozilla")
-				.timeout(20000)
+				.timeout(30000)
+				.followRedirects(true)
 				.referrer("http://google.com")
 				.get();
 		} catch (IOException e) {
