@@ -19,7 +19,7 @@ public interface Retriever {
 				.referrer("http://google.com")
 				.get();
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Exception occured "+ e.getMessage() );
 		}
 		return null;
 	}

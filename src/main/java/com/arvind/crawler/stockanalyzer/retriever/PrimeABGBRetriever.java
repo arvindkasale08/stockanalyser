@@ -38,7 +38,9 @@ public class PrimeABGBRetriever implements Retriever {
 			// call the url in a resolver
 			.forEach(resolver -> {
 				Document document = call(resolver.getUrl());
-				results.addAll(resolver.resolve(document));
+				if(document != null) {
+					results.addAll(resolver.resolve(document));
+				}
 			});
 		return results;
 	}
