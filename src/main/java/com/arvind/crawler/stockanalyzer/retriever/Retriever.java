@@ -12,7 +12,11 @@ public interface Retriever {
 
 	default Document call(String url) {
 		try {
-			return Jsoup.connect(url).get();
+			return Jsoup.connect(url)
+				.userAgent("Mozilla")
+				.timeout(20000)
+				.referrer("http://google.com")
+				.get();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
