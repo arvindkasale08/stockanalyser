@@ -21,7 +21,7 @@ public class StockanalyzerApplication {
 		executorService.scheduleAtFixedRate(() -> runner.run()
 			,
 			1,
-			15,
+			2,
 			TimeUnit.MINUTES);
 	}
 
