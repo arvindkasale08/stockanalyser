@@ -7,12 +7,13 @@ import javax.annotation.PostConstruct;
 
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.arvind.crawler.stockanalyzer.response.PrimeABGB3080Resolver;
 import com.arvind.crawler.stockanalyzer.response.PrimeABGBAMDResolver;
 import com.arvind.crawler.stockanalyzer.response.Resolver;
 
-//@Component
+@Component
 public class PrimeABGBRetriever implements Retriever {
 
 	@Autowired
