@@ -2,7 +2,6 @@ package com.arvind.crawler.stockanalyzer;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,7 +20,7 @@ public class StockanalyzerApplication {
 		StockRunner runner = context.getBean(StockRunner.class);
 
 		ScheduledExecutorService executorService = Executors.newScheduledThreadPool(4);
-		executorService.scheduleAtFixedRate(() -> runner.run()
+		/*executorService.scheduleAtFixedRate(() -> runner.run()
 			,
 			5,
 			60,
@@ -35,6 +34,8 @@ public class StockanalyzerApplication {
 			1,
 			2,
 			TimeUnit.MINUTES);
+
+		 */
 
 	}
 
