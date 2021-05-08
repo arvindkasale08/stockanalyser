@@ -9,8 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import com.arvind.crawler.stockanalyzer.messenger.WatsappSender;
+import com.arvind.crawler.stockanalyzer.retriever.JsonRetrieverRepository;
 import com.arvind.crawler.stockanalyzer.retriever.RetrieverRepository;
 
 @Slf4j
@@ -21,12 +23,18 @@ public class StockRunner{
 	private WatsappSender sender;
 	@Autowired
 	private RetrieverRepository retrieverRepository;
+	@Autowired
+	private JsonRetrieverRepository jsonRetrieverRepository;
 
 	public void run() {
 		log.info("Running stock runner to get latest stock information at {}", LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC));
 		// Get information from crawler and send it to watsapp
 		List<String> data = retrieverRepository.retrieve();
-		data.stream()
-			.forEach(s -> sender.send(s));
+		if (CollectionUtils.isEmpty(data)) {
+			sender.send("************ No Data ***************");
+		} else {
+			data.stream()
+				.forEach(s -> sender.send(s));
+		}
 	}
 }

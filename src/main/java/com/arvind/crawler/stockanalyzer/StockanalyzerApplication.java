@@ -23,9 +23,9 @@ public class StockanalyzerApplication {
 		ScheduledExecutorService executorService = Executors.newScheduledThreadPool(4);
 		executorService.scheduleAtFixedRate(() -> runner.run()
 			,
-			1,
-			30,
-			TimeUnit.MINUTES);
+			5,
+			60,
+			TimeUnit.SECONDS);
 
 		ScheduledExecutorService executorService2 = Executors.newScheduledThreadPool(4);
 		executorService.scheduleAtFixedRate(() -> {
