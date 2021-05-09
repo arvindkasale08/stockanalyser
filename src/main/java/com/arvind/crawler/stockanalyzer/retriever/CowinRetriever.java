@@ -27,6 +27,7 @@ public class CowinRetriever implements Retriever {
 	public void setup() {
 		resolvers = new ArrayList<>();
 		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_WEEK, 1);
 		resolvers.add(cowinResolverFactory.apply(calendar.getTime()));
 		calendar.add(Calendar.DAY_OF_WEEK, 7);
 		resolvers.add(cowinResolverFactory.apply(calendar.getTime()));

@@ -31,7 +31,7 @@ public class StockRunner{
 		// Get information from crawler and send it to watsapp
 		List<String> data = retrieverRepository.retrieve();
 		if (CollectionUtils.isEmpty(data)) {
-			sender.send("************ No Data ***************");
+			//sender.send("************ No Data ***************");
 		} else {
 			data.stream()
 				.forEach(s -> sender.send(s));
